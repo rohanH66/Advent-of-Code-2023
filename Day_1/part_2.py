@@ -1,12 +1,9 @@
-first_num = 0
-second_num = 0
-total = 0
+first_num, second_num, total = 0, 0, 0
 nums = "0 zero 1 one 2 two 3 three 4 four 5 five 6 six 7 seven 8 eight 9 nine".split()
 
 for i in range(1000):
     word = input()
-    curr_list = []
-    new_list = []
+    curr_list, new_list = list(), list()
     for a in nums:
         try:
             if word.count(a) > 1:
@@ -19,19 +16,9 @@ for i in range(1000):
                 new_list.append(a)
         except:
             pass
-        
-    first_num = min(curr_list)
-    second_num = max(curr_list)
     
-    for a in nums:
-        try:
-            curr_list.append(word.index(a))
-            new_list.append(a)
-        except:
-            pass
-    
-    first_word = new_list[curr_list.index(first_num)]
-    second_word = new_list[curr_list.index(second_num)]
+    first_word = new_list[curr_list.index(min(curr_list))]
+    second_word = new_list[curr_list.index(max(curr_list))]
 
     if first_word == "one":
         first_word = "1"
